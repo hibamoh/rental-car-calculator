@@ -12,6 +12,7 @@ public class RentalCalculator {
        double basicTotal;
        double optionsCost = 0.0;
        double totalCost = 0.0;
+       double surchargeAmount = 0.0;
 
        Scanner myScanner = new Scanner(System.in);
 
@@ -51,16 +52,18 @@ public class RentalCalculator {
 
         if (age < 25) {
             System.out.println("there is a surcharge fee for drivers under 25, it is 30% ");
-            totalCost = (basicTotal + optionsCost) * surcharge;
+            surchargeAmount = (basicTotal + optionsCost) * surcharge;
+            totalCost = (basicTotal + optionsCost) + surchargeAmount;
         } else {
             System.out.println("there is no surcharge fee");
             totalCost = (basicTotal + optionsCost);
         }
 
 
-        System.out.println("the basic cost of the rental is: " + basicTotal);
-        System.out.println("the total options cost is " + optionsCost );
-       System.out.println("your total cost will be %2f/n " + totalCost);
+        System.out.printf("the basic cost of the rental is: %.2f%n " , basicTotal);
+       System.out.printf("the surcharge amount is: %.2f%n" , surchargeAmount);
+        System.out.printf("the total options cost is: %.2f%n" ,optionsCost );
+       System.out.printf("your total cost will be: %.2f%n " , totalCost);
 
 
 
